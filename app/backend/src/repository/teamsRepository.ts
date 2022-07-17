@@ -2,7 +2,7 @@ import Team from '../database/models/team';
 
 import { ITeamsModel, ITeam } from '../protocols';
 
-export default class teamsRepository implements ITeamsModel {
+export default class TeamsRepository implements ITeamsModel {
   constructor(private model = Team) {
     this.model = model;
   }

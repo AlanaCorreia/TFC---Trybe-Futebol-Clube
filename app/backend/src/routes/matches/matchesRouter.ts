@@ -17,6 +17,10 @@ const matchesController = entityFactory();
 
 const matchesRouter = express.Router();
 
+matchesRouter.patch('/:id/finish', validationToken, (req, res, next) => {
+  matchesController.update(req, res, next);
+});
+
 matchesRouter.post('/', validationToken, (req, res, next) => {
   matchesController.create(req, res, next);
 });

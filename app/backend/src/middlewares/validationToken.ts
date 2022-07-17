@@ -12,7 +12,7 @@ const validationToken = async (req: Request, res: Response, next: NextFunction) 
   try {
     const token = req.headers.authorization;
 
-    if (!token) throw new CostumError(StatusCodes.UNAUTHORIZED, 'Token not found');
+    if (!token) throw new CostumError(StatusCodes.UNAUTHORIZED, 'Token must be a valid token');
 
     const decoded = jwt.verify(token, secret) as jwt.JwtPayload;
 

@@ -33,6 +33,7 @@ export interface IMatchesModel {
   list(): Promise<IMatchAssociation[]>;
   create(homeTeam: number, awayTeam: number,
     homeTeamGoals: number, awayTeamGoals: number): Promise<IMatch>;
+  update(id: number): Promise<void>;
 }
 export interface ILoginModel {
   login(email: string): Promise<IUser | null>;
@@ -46,6 +47,7 @@ export interface IMatchesService {
   list(): Promise<IMatchAssociation[]>;
   create(homeTeam: number, awayTeam: number,
     homeTeamGoals: number, awayTeamGoals: number): Promise<IMatch>;
+  update(id: number): Promise<void>;
 }
 export interface ILoginService {
   login(email: string, password: string): Promise<string>
