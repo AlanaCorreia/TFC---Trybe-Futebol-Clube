@@ -17,7 +17,7 @@ export interface IMatch {
   homeTeamGoals: number,
   awayTeam: number,
   awayTeamGoals: number,
-  inProgress: boolean,
+  inProgress?: boolean,
 }
 
 export interface IMatchAssociation extends IMatch {
@@ -31,6 +31,8 @@ export interface IMatchAssociation extends IMatch {
 
 export interface IMatchesModel {
   list(): Promise<IMatchAssociation[]>;
+  create(homeTeam: number, awayTeam: number,
+    homeTeamGoals: number, awayTeamGoals: number): Promise<IMatch>;
 }
 export interface ILoginModel {
   login(email: string): Promise<IUser | null>;
@@ -42,6 +44,8 @@ export interface ITeamsModel {
 
 export interface IMatchesService {
   list(): Promise<IMatchAssociation[]>;
+  create(homeTeam: number, awayTeam: number,
+    homeTeamGoals: number, awayTeamGoals: number): Promise<IMatch>;
 }
 export interface ILoginService {
   login(email: string, password: string): Promise<string>

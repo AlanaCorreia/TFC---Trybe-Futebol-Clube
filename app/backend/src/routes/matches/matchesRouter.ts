@@ -1,4 +1,5 @@
 import * as express from 'express';
+import validationToken from '../../middlewares/validationToken';
 
 import Controller from '../../controllers/matchesController';
 import Repository from '../../repository/matchesRepository';
@@ -15,6 +16,10 @@ const entityFactory = () => {
 const matchesController = entityFactory();
 
 const matchesRouter = express.Router();
+
+matchesRouter.post('/', validationToken, (req, res, next) => {
+  matchesController.create(req, res, next);
+});
 
 matchesRouter.get('/', (req, res, next) => {
   matchesController.list(req, res, next);
