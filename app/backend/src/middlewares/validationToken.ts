@@ -12,7 +12,7 @@ const validationToken = async (req: Request, res: Response, next: NextFunction) 
   try {
     const token = req.headers.authorization;
 
-    if (!token) throw new CostumError(StatusCodes.UNAUTHORIZED, 'Token must be a valid token');
+    if (!token) throw new CostumError(StatusCodes.UNAUTHORIZED, 'Token not found');
 
     const decoded = jwt.verify(token, secret) as jwt.JwtPayload;
 
@@ -20,7 +20,7 @@ const validationToken = async (req: Request, res: Response, next: NextFunction) 
 
     next();
   } catch (error) {
-    return res.status(401).json({ message: 'Expired or invalid token' });
+    return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Token must be a valid token' });
   }
 };
 

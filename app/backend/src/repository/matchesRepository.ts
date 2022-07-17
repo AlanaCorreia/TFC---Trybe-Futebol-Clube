@@ -1,9 +1,9 @@
 import Team from '../database/models/team';
 import Matches from '../database/models/matches';
 
-import { IMatch, IMatchAssociation, IMatchesModel } from '../protocols';
+import { IMatch, IMatchAssociation, IMatches } from '../protocols';
 
-export default class MatchesRepository implements IMatchesModel {
+export default class MatchesRepository implements IMatches {
   constructor(private model = Matches) {
     this.model = model;
   }
@@ -29,7 +29,11 @@ export default class MatchesRepository implements IMatchesModel {
     return match as unknown as IMatch;
   };
 
-  update = async (id: number): Promise<void> => {
+  finishUpdate = async (id: number): Promise<void> => {
     await this.model.update({ inProgress: false }, { where: { id } });
+  };
+
+  matchUpdate = async (id: number, homeTeamGoals: number, awayTeamGoals: number): Promise<void> => {
+    await this.model.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
   };
 }

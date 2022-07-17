@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { IMatchesService } from '../protocols';
+import { IMatches } from '../protocols';
 
 export default class MatchesController {
-  constructor(private service: IMatchesService) {
+  constructor(private service: IMatches) {
     this.service = service;
   }
 
@@ -29,14 +29,28 @@ export default class MatchesController {
     }
   };
 
-  update = async (req: Request, res: Response, next: NextFunction) => {
+  finishUpdate = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { id } = req.params;
       const idMatch = Number(id);
 
-      await this.service.update(idMatch);
+      await this.service.finishUpdate(idMatch);
 
       return res.status(StatusCodes.OK).json({ message: 'Finished' });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  matchUpdate = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { id } = req.params;
+      const { homeTeamGoals, awayTeamGoals } = req.body;
+      const idMatch = Number(id);
+
+      await this.service.matchUpdate(idMatch, homeTeamGoals, awayTeamGoals);
+
+      return res.status(StatusCodes.OK).json({ message: 'Updated match' });
     } catch (error) {
       next(error);
     }

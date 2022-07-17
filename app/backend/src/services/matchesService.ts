@@ -1,12 +1,12 @@
 import { StatusCodes } from 'http-status-codes';
 import CostumError from '../utils/CostumError';
 import TeamsRepository from '../repository/teamsRepository';
-import { IMatch, IMatchAssociation, IMatchesModel, IMatchesService } from '../protocols';
+import { IMatch, IMatchAssociation, IMatches } from '../protocols';
 
-export default class MatchesService implements IMatchesService {
+export default class MatchesService implements IMatches {
   teamsModel: TeamsRepository;
 
-  constructor(private model: IMatchesModel) {
+  constructor(private model: IMatches) {
     this.model = model;
     this.teamsModel = new TeamsRepository();
   }
@@ -42,7 +42,11 @@ export default class MatchesService implements IMatchesService {
     return match;
   }
 
-  async update(id: number): Promise<void> {
-    await this.model.update(id);
+  async finishUpdate(id: number): Promise<void> {
+    await this.model.finishUpdate(id);
+  }
+
+  async matchUpdate(id: number, homeTeamGoals: number, awayTeamGoals: number): Promise<void> {
+    await this.model.matchUpdate(id, homeTeamGoals, awayTeamGoals);
   }
 }
