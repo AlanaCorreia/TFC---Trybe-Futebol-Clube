@@ -17,4 +17,14 @@ export default class loginController {
       next(error);
     }
   };
+
+  validateLogin = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { data: { role } } = req.body;
+
+      return res.status(StatusCodes.OK).json({ role });
+    } catch (error) {
+      next(error);
+    }
+  };
 }

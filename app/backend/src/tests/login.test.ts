@@ -38,7 +38,7 @@ describe('Object User', () => {
     chaiHttpResponse = await chai
       .request(app)
       .post('/login')
-      .send({ email: 'admin@admim.com', password: 'secret_admin' });
+      .send({ email: 'admin@admin.com', password: 'secret_admin' });
 
     expect(chaiHttpResponse).to.have.status(StatusCodes.OK);
     expect(chaiHttpResponse.body).to.have.property('token');

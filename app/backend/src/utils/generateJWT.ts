@@ -4,7 +4,7 @@ import { IUser } from '../protocols';
 
 dotenv.config();
 
-const secret = process.env.JWT_SECRET || 'jwt_secret';
+const secret = process.env.JWT_SECRET || '123456';
 
 const jwtConfig:jwt.SignOptions = {
   expiresIn: '4h',
