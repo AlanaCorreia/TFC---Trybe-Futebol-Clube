@@ -7,10 +7,22 @@ export interface IUser {
 
 }
 
+export interface ITeam {
+  id?: number;
+  teamName: string;
+}
+
 export interface ILoginModel {
   login(email: string): Promise<IUser | null>;
 }
 
+export interface ITeamsModel {
+  list(): Promise<ITeam[]>;
+}
+
 export interface ILoginService {
   login(email: string, password: string): Promise<string>
+}
+export interface ITeamsService {
+  list(): Promise<ITeam[]>
 }
