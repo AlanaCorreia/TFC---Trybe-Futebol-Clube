@@ -18,6 +18,7 @@ export interface ILoginModel {
 
 export interface ITeamsModel {
   list(): Promise<ITeam[]>;
+  findTeam(id: number): Promise<ITeam | null>;
 }
 
 export interface ILoginService {
@@ -25,4 +26,5 @@ export interface ILoginService {
 }
 export interface ITeamsService {
   list(): Promise<ITeam[]>
+  findTeam(id: number): Promise<ITeam | void>;
 }

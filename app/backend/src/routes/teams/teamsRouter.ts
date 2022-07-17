@@ -16,6 +16,10 @@ const teamsController = entityFactory();
 
 const teamsRouter = express.Router();
 
+teamsRouter.get('/:id', (req, res, next) => {
+  teamsController.findTeam(req, res, next);
+});
+
 teamsRouter.get('/', (req, res, next) => {
   teamsController.list(req, res, next);
 });
