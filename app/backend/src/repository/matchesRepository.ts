@@ -17,6 +17,17 @@ export default class MatchesRepository implements IMatches {
     return teams as unknown as IMatchAssociation[];
   };
 
+  finishList = async (id: number): Promise<IMatchAssociation[]> => {
+    const teams = await this.model.findAll({
+      include: [
+        { model: Team, as: 'teamHome', attributes: { exclude: ['id'] } },
+        { model: Team, as: 'teamAway', attributes: { exclude: ['id'] } }],
+      where: { inProgress: false, homeTeam: id },
+    });
+
+    return teams as unknown as IMatchAssociation[];
+  };
+
   create = async (
     homeTeam: number,
     awayTeam: number,

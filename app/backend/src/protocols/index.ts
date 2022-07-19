@@ -7,7 +7,7 @@ export interface IUser {
 
 }
 export interface ITeam {
-  id?: number;
+  id: number;
   teamName: string;
 }
 
@@ -18,6 +18,22 @@ export interface IMatch {
   awayTeam: number,
   awayTeamGoals: number,
   inProgress?: boolean,
+}
+
+export interface IMatchLeaderBoard {
+  totalPoints: number,
+  totalGames: number,
+  totalVictories: number,
+  totalDraws: number,
+  totalLosses: number,
+  goalsFavor: number,
+  goalsOwn: number,
+  goalsBalance: number,
+  efficiency: number | string,
+}
+
+export interface ILeaderBoard extends IMatchLeaderBoard{
+  name: string,
 }
 
 export interface IMatchAssociation extends IMatch {
@@ -50,4 +66,7 @@ export interface ILoginService {
 export interface ITeamsService {
   list(): Promise<ITeam[]>
   findTeam(id: number): Promise<ITeam | void>;
+}
+export interface ILeaderBoardService {
+  leaderBoardHome(): Promise<ILeaderBoard[] | void>
 }
