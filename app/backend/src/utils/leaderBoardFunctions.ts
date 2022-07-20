@@ -53,19 +53,22 @@ const totalPoints = (matchesTeam: IMatchAssociation[]) => {
 
 export const orderRanking = (arrayLeaderboard: any) => {
   const order = arrayLeaderboard.sort((a: ILeaderBoard, b: ILeaderBoard) => {
-    if (a.totalPoints === b.totalPoints) {
-      if (a.totalVictories === b.totalVictories) {
-        if (a.goalsBalance === b.goalsBalance) {
-          if (a.goalsFavor === b.goalsFavor) {
-            return b.goalsOwn - a.goalsOwn;
-          }
-          return b.goalsFavor - a.goalsFavor;
-        }
-        return b.goalsBalance - a.goalsBalance;
-      }
-      return b.totalVictories - a.totalVictories;
-    }
-    return b.totalPoints - a.totalPoints;
+    if (a.totalPoints > b.totalPoints) return -1;
+    if (a.totalPoints < b.totalPoints) return 1;
+
+    if (a.totalVictories > b.totalVictories) return -1;
+    if (a.totalVictories < b.totalVictories) return 1;
+
+    if (a.goalsBalance > b.goalsBalance) return -1;
+    if (a.goalsBalance < b.goalsBalance) return 1;
+
+    if (a.goalsFavor > b.goalsFavor) return -1;
+    if (a.goalsFavor < b.goalsFavor) return 1;
+
+    if (a.goalsOwn > b.goalsOwn) return -1;
+    if (a.goalsOwn < b.goalsOwn) return 1;
+
+    return 0;
   });
 
   return order;
