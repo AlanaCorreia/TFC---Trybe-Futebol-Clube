@@ -6,7 +6,7 @@ Projeto back-end de API RESTful dockerizada desenvolvida sob arquitetura MSC (mo
 
 <details>
   <summary>
-    <strong>Habilidades:</strong>
+    <strong>:computer: Habilidades:</strong>
   </summary> </br>
 
 - Utilização e manipulação de dados com MySQL e Sequelize.
@@ -17,7 +17,7 @@ Projeto back-end de API RESTful dockerizada desenvolvida sob arquitetura MSC (mo
 
 <details>
   <summary>
-    <strong>Construído com:</strong>
+    <strong>🔧 Construído com:</strong>
   </summary><br>
 
   * Node.js;
