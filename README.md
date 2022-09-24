@@ -9,7 +9,7 @@ Projeto back-end de API RESTful dockerizada desenvolvida sob arquitetura MSC (mo
     <strong>Habilidades:</strong>
   </summary> </br>
 
-- Utilização e manipulação de dados com MySQL e Sequelize;
+- Utilização e manipulação de dados com MySQL e Sequelize.
 - Criação de API RESTfull com arquitetura MSC, utilizando Node.js, TypeScript e o framework Express.
 - Criação de testes utilizando os frameworks Mocha, Chai e Sinon.
 
