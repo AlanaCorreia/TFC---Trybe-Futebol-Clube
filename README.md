@@ -35,7 +35,7 @@ Projeto back-end de API RESTful dockerizada desenvolvida sob arquitetura MSC (mo
 
 <details>
   <summary>
-    <strong>:bicyclist: Começando</strong>
+    <strong>:bicyclist: Começando:</strong>
   </summary><br>
 
   ### :hammer_and_wrench: Instalação
