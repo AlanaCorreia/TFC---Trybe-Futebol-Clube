@@ -32,3 +32,30 @@ Projeto back-end de API RESTful dockerizada desenvolvida sob arquitetura MSC (mo
   * bcryptjs.
 
 </details>
+
+<details>
+  <summary>
+    <strong>:bicyclist: Começando</strong>
+  </summary><br>
+
+  ### :hammer_and_wrench: Instalação
+  1- Clone o projeto em sua maquina rodando o seguinte comando no terminal:
+
+  ``` git clone git@github.com:AlanaCorreia/TFC---Trybe-Futebol-Clube.git ```
+
+  2- Depois de clonado, entre no diretório:
+
+  ``` cd TFC---Trybe-Futebol-Clube ```
+  
+  3- Execute o docker-compose.yml através do script:
+  
+    ``` npm compose:up ``` 
+
+  4- Instale as dependências
+    Para isso, use o seguinte comando: ``` npm install ```
+
+  5- Para inicializar a aplicação:
+
+    Para acessar a aplicação e testa-la manualmente, acesse a pagina http://localhost:3000 .
+
+</details>
